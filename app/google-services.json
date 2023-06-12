@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "422360317212",
+    "project_id": "eggcare-e5d08",
+    "storage_bucket": "eggcare-e5d08.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:422360317212:android:2f6f41e742ea298d814ed9",
+        "android_client_info": {
+          "package_name": "com.example.eggcareapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "422360317212-cjjg94oodf3j9qub41209scsk3o978o2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAH325A8MyB2O-6x59C41EfQ5KpRIaAnh4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "422360317212-cjjg94oodf3j9qub41209scsk3o978o2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

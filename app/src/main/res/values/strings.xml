@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Eggcare</string>
+    <string name="title">Hello! Let\'s make\nyour Account.</string>
+    <string name="subtitle">Fill in your details and manage your farm.</string>
+    <string name="terms_and_services"><u>Terms and Services.</u></string>
+    <string name="forget_password"><u>Forget password?</u></string>
+    <string name="sign_in"><u>Sign In</u></string>
+    <string name="sign_up"><u>Sign Up</u></string>
+    <string name="back_button_desc">Kembali ke home</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ScrollView">ScrollView Desc</string>
+    <string-array name="cage_type">
+        <item>Starter</item>
+        <item>Grower</item>
+        <item>Layer</item>
+        <item>Baterai</item>
+        <item>Semi-baterai</item>
+
+    </string-array>
+</resources>

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#F6F6EE"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F6F6EE"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/tvStats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/satoshi_bold"
+            android:text="Statistics"
+            android:textColor="@color/neutral_900"
+            android:textSize="28sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/satoshi_medium"
+            android:text="Egg production insights"
+            android:layout_marginStart="24dp"
+            android:textColor="@color/neutral_900"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvStats" />
+
+        <LinearLayout
+            android:id="@+id/barChartCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/custom_detail_card"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/desc">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="24dp"
+                android:text="Amount"
+                android:textSize="18sp"
+                android:textAllCaps="true"
+                android:fontFamily="@font/satoshi_bold"
+                android:textColor="@color/neutral_900"/>
+
+            <com.db.williamchart.view.BarChartView
+                android:id="@+id/barChart"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="24dp"
+                app:chart_barsColor="@color/primary"
+                app:chart_barsRadius="4dp"
+                app:chart_spacing="24dp"
+                app:chart_labelsSize="12sp"
+                app:chart_labelsFont="@font/satoshi_medium"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lineChartCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="24dp"
+            android:background="@drawable/custom_detail_card"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barChartCard">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/satoshi_bold"
+                android:text="Egg"
+                android:textAllCaps="true"
+                android:textColor="@color/neutral_900"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/satoshi_bold"
+                android:text="Recommend frequency (Week)"
+                android:textColor="@color/neutral_400"
+                android:textSize="12sp" />
+
+            <com.db.williamchart.view.LineChartView
+                android:id="@+id/lineChart"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="24dp"
+                app:chart_gridEffect="dotted"
+                app:chart_labelsSize="12sp"
+                app:chart_lineColor="@color/primary"
+                app:chart_lineThickness="3dp"
+                app:chart_smoothLine="true" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/donut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lineChartCard">
+
+            <LinearLayout
+                android:id="@+id/donutChartCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_detail_card"
+                android:orientation="vertical"
+                android:padding="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/donutChartCard2"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.db.williamchart.view.DonutChartView
+                    android:id="@+id/donutChart"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:chart_donutBackgroundColor="@color/neutral_200"
+                    app:chart_donutRoundCorners="true"
+                    app:chart_donutThickness="15dp"
+                    app:chart_donutTotal="200" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:background="#027E4A" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/satoshi_medium"
+                        android:text="Already used"
+                        android:textColor="@color/neutral_900"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:background="@color/neutral_200" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/satoshi_medium"
+                        android:text="Availability"
+                        android:textColor="@color/neutral_900"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/donutChartCard2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_detail_card"
+                android:orientation="vertical"
+                android:padding="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/donutChartCard"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.db.williamchart.view.DonutChartView
+                    android:id="@+id/donutChart2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:chart_donutBackgroundColor="@color/neutral_200"
+                    app:chart_donutRoundCorners="true"
+                    app:chart_donutThickness="15dp"
+                    app:chart_donutTotal="200" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:background="#5DDDF9" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/satoshi_medium"
+                        android:text="Already used"
+                        android:textColor="@color/neutral_900"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:background="@color/neutral_200" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/satoshi_medium"
+                        android:text="Availability"
+                        android:textColor="@color/neutral_900"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
